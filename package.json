@@ -25,6 +25,9 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
   },
+  "dependencies": {
+    "tencentcloud-sdk-nodejs": "^4.0.94"
+  },
   "devDependencies": {
     "@nestjs/cli": "^7.6.0",
     "@nestjs/common": "^7.6.15",
