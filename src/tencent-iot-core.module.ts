@@ -2,6 +2,7 @@ import { DynamicModule, Global, Module, Provider } from '@nestjs/common';
 import { OPTIONS_PROVIDER } from './constants/common.constant';
 import { TencentIotModuleOptions, TencentIotModuleAsyncOptions, TencentIotOptionsFactory } from './interfaces/options.interface';
 import { createTencentIotClientProvider } from './providers/iot-client.provider';
+import { TencentIotMqttService } from './services/mqtt.service';
 import { TencentIotProductService } from './services/product.service';
 import { IricUtil } from './utils/iric.util';
 import { RegexUtil } from './utils/regex.util';
@@ -17,8 +18,8 @@ export class TencentIotCoreModule {
   static forRoot(options: TencentIotModuleOptions): DynamicModule {
     return {
       module: TencentIotCoreModule,
-      providers: [TencentIotProductService, IricUtil, RegexUtil, createTencentIotClientProvider(), { provide: OPTIONS_PROVIDER, useValue: options }],
-      exports: [TencentIotProductService]
+      providers: [TencentIotProductService, TencentIotMqttService, IricUtil, RegexUtil, createTencentIotClientProvider(), { provide: OPTIONS_PROVIDER, useValue: options }],
+      exports: [TencentIotProductService, TencentIotMqttService]
     };
   }
 
@@ -32,8 +33,8 @@ export class TencentIotCoreModule {
     return {
       module: TencentIotCoreModule,
       imports: options.imports,
-      providers: [...asyncProviders, TencentIotProductService, IricUtil, RegexUtil, createTencentIotClientProvider()],
-      exports: [TencentIotProductService]
+      providers: [...asyncProviders, TencentIotProductService, TencentIotMqttService, IricUtil, RegexUtil, createTencentIotClientProvider()],
+      exports: [TencentIotProductService, TencentIotMqttService]
     };
   }
 

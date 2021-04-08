@@ -22,4 +22,19 @@ export class ConfigService {
       }
     };
   }
+
+  /** 测试相关配置 */
+  get test() {
+    return {
+      /** 腾讯云物联网通信相关配置 */
+      iotCloud: {
+        /** 产品ID */
+        productId: this.nestConfigService.get<string>('test.iotCloud.productId'),
+        /** 产品名称 */
+        deviceName: this.nestConfigService.get<string>('test.iotCloud.deviceName'),
+        /** 下发Topic */
+        topic: this.nestConfigService.get<string>('test.iotCloud.topic')
+      }
+    };
+  }
 }

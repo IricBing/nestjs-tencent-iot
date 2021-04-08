@@ -4,6 +4,7 @@ import { ConfigService } from './services/config.service';
 import { ConfigValidation } from './validations/config.validation';
 import { CONFIG_PROVIDER } from './constants/config.constant';
 import { TencentConfigRegister } from './registers/tencent.register';
+import { TestConfigRegister } from './registers/test.register';
 
 @Global()
 @Module({
@@ -14,7 +15,7 @@ import { TencentConfigRegister } from './registers/tencent.register';
         allowUnknown: true,
         abortEarly: true
       },
-      load: [TencentConfigRegister]
+      load: [TencentConfigRegister, TestConfigRegister]
     })
   ],
   providers: [
