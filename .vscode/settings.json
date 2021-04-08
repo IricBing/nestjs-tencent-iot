@@ -31,9 +31,12 @@
   "clang-format.style": "google",
   "cSpell.words": [
     "Iric",
+    "dtos",
+    "iotcloud",
     "lantsang",
     "nestjs",
     "tencent",
-    "tencentcloud"
+    "tencentcloud",
+    "tencentcloudapi"
   ]
 }
