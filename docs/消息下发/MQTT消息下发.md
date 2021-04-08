@@ -1,6 +1,6 @@
 # `MQTT` 消息下发
 
-`MQTT` 消息相关服务封装与 `TencentIotMqttService` 类中，可通过如下方式引入：
+`MQTT` 消息相关服务封装于 `TencentIotMqttService` 类中，可通过如下方式引入：
 
 ``` typescript
 import { TencentIotMqttService } from '@lantsang/nestjs-mp'

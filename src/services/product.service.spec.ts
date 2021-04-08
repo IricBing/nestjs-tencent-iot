@@ -37,11 +37,27 @@ describe('ProductService (async)', () => {
     await app.close();
   });
 
-  describe('获取产品列表', () => {
-    it('成功', async () => {
-      const { RequestId, Products } = await productService.getList(1, 10);
-      expect(regexUtil.isUuid(RequestId)).toBe(true);
-      expect(Products instanceof Array).toBe(true);
-    });
+  let productId: string;
+  const productName = '测试产品' + Date.now();
+
+  it('创建产品', async () => {
+    const { RequestId, ProductId, ProductName } = await productService.create(productName);
+    expect(regexUtil.isUuid(RequestId)).toBe(true);
+    expect(typeof ProductId).toBe('string');
+    expect(ProductName).toEqual(productName);
+
+    productId = ProductId;
+  });
+
+  it('获取产品列表', async () => {
+    const { RequestId, Products } = await productService.getList(1, 10);
+    expect(regexUtil.isUuid(RequestId)).toBe(true);
+    expect(Products instanceof Array).toBe(true);
+    expect(Products.find(product => product.ProductId === productId).ProductName).toEqual(productName);
+  });
+
+  it('删除产品', async () => {
+    const { RequestId } = await productService.delete(productId);
+    expect(regexUtil.isUuid(RequestId)).toBe(true);
   });
 });
