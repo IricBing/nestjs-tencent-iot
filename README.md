@@ -71,4 +71,5 @@ export class AppModule {}
 ## 文档地址
 
 * [私有Gitlab](https://gitlab.lantsang.cn/nestjs-plugins/nestjs-tencent-iot/tree/master/docs)
-* [GitHub](https://github.com/IricBing/nestjs-tencent-iot/tree/master/docs)
+* [GitHub](https://github.com/lantsang/nestjs-tencent-iot/tree/master/docs)
+* [Gitee](https://gitee.com/lantsang/nestjs-tencent-iot/tree/master/docs)
