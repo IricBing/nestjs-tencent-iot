@@ -4,7 +4,9 @@ import { TencentIotModuleOptions, TencentIotModuleAsyncOptions, TencentIotOption
 import { createTencentIotClientProvider } from './providers/iot-client.provider';
 import { TencentIotDeviceService } from './services/device.service';
 import { TencentIotMqttService } from './services/mqtt.service';
+import { TencentIotProductTaskService } from './services/product-task.service';
 import { TencentIotProductService } from './services/product.service';
+import { TencentIotTaskService } from './services/task.service';
 import { IricUtil } from './utils/iric.util';
 import { RegexUtil } from './utils/regex.util';
 
@@ -19,8 +21,18 @@ export class TencentIotCoreModule {
   static forRoot(options: TencentIotModuleOptions): DynamicModule {
     return {
       module: TencentIotCoreModule,
-      providers: [TencentIotProductService, TencentIotMqttService, TencentIotDeviceService, IricUtil, RegexUtil, createTencentIotClientProvider(), { provide: OPTIONS_PROVIDER, useValue: options }],
-      exports: [TencentIotProductService, TencentIotMqttService, TencentIotDeviceService]
+      providers: [
+        TencentIotProductService,
+        TencentIotMqttService,
+        TencentIotDeviceService,
+        TencentIotTaskService,
+        TencentIotProductTaskService,
+        IricUtil,
+        RegexUtil,
+        createTencentIotClientProvider(),
+        { provide: OPTIONS_PROVIDER, useValue: options }
+      ],
+      exports: [TencentIotProductService, TencentIotMqttService, TencentIotDeviceService, TencentIotTaskService, TencentIotProductTaskService]
     };
   }
 
@@ -34,8 +46,18 @@ export class TencentIotCoreModule {
     return {
       module: TencentIotCoreModule,
       imports: options.imports,
-      providers: [...asyncProviders, TencentIotProductService, TencentIotMqttService, TencentIotDeviceService, IricUtil, RegexUtil, createTencentIotClientProvider()],
-      exports: [TencentIotProductService, TencentIotMqttService, TencentIotDeviceService]
+      providers: [
+        ...asyncProviders,
+        TencentIotProductService,
+        TencentIotMqttService,
+        TencentIotDeviceService,
+        TencentIotTaskService,
+        TencentIotProductTaskService,
+        IricUtil,
+        RegexUtil,
+        createTencentIotClientProvider()
+      ],
+      exports: [TencentIotProductService, TencentIotMqttService, TencentIotDeviceService, TencentIotTaskService, TencentIotProductTaskService]
     };
   }
 
