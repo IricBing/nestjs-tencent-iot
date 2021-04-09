@@ -3,7 +3,7 @@
 `MQTT` 消息相关服务封装于 `TencentIotMqttService` 类中，可通过如下方式引入：
 
 ``` typescript
-import { TencentIotMqttService } from '@lantsang/nestjs-mp'
+import { TencentIotMqttService } from '@lantsang/nestjs-tencent-iot'
 ```
 
 ## 发送主题消息
