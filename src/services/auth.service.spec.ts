@@ -41,9 +41,9 @@ describe('AuthService (sync)', () => {
   });
 
   it('签名校验', async () => {
-    const success = authService.checkSignature('c259ed29ec13ba7c649fe0893007401a36e70453', 'IkOaKMDalrAzUTxC', 1604458421);
+    const success = authService.checkSignature('c259ed29ec13ba7c649fe0893007401a36e70453', 'IkOaKMDalrAzUTxC', '1604458421');
     expect(success).toBe(true);
-    const fail = authService.checkSignature('c259ed29ec13ba7c649fe0893007401a36e70453', 'IkOaKMDalrAzUTxC', 16044588421);
+    const fail = authService.checkSignature('c259ed29ec13ba7c649fe0893007401a36e70453', 'IkOaKMDalrAzUTxC', '16044588421');
     expect(fail).toBe(false);
   });
 });

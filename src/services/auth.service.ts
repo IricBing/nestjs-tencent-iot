@@ -17,7 +17,7 @@ export class TencentIotAuthService {
    * @param timestamp 时间戳
    * @returns 签名校验结果
    */
-  checkSignature(signature: string, nonce: string, timestamp: number): boolean {
+  checkSignature(signature: string, nonce: string, timestamp: string): boolean {
     return createHash('sha1').update([timestamp, nonce, this.options.token].sort().join('')).digest('hex') === signature;
   }
 }
