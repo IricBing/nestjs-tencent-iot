@@ -19,6 +19,11 @@ export class ConfigService {
           /** 腾讯云子账户SecretKey */
           secretKey: this.nestConfigService.get<string>('tencent.cam.user.secretKey')
         }
+      },
+      /** 腾讯云物联网通信相关信息 */
+      iothub: {
+        /** Token */
+        token: this.nestConfigService.get<string>('tencent.iothub.token')
       }
     };
   }

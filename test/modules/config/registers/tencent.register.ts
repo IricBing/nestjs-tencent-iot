@@ -7,5 +7,8 @@ export const TencentConfigRegister = registerAs('tencent', () => ({
       secretId: process.env.TENCENT_CAM_USER_SECRET_ID,
       secretKey: process.env.TENCENT_CAM_USER_SECRET_KEY
     }
+  },
+  iothub: {
+    token: process.env.TENCENT_IOTHUB_TOKEN
   }
 }));

@@ -2,6 +2,7 @@ import { DynamicModule, Global, Module, Provider } from '@nestjs/common';
 import { OPTIONS_PROVIDER } from './constants/common.constant';
 import { TencentIotModuleOptions, TencentIotModuleAsyncOptions, TencentIotOptionsFactory } from './interfaces/options.interface';
 import { createTencentIotClientProvider } from './providers/iot-client.provider';
+import { TencentIotAuthService } from './services/auth.service';
 import { TencentIotDeviceService } from './services/device.service';
 import { TencentIotMqttService } from './services/mqtt.service';
 import { TencentIotProductTaskService } from './services/product-task.service';
@@ -22,6 +23,7 @@ export class TencentIotCoreModule {
     return {
       module: TencentIotCoreModule,
       providers: [
+        TencentIotAuthService,
         TencentIotProductService,
         TencentIotMqttService,
         TencentIotDeviceService,
@@ -32,7 +34,7 @@ export class TencentIotCoreModule {
         createTencentIotClientProvider(),
         { provide: OPTIONS_PROVIDER, useValue: options }
       ],
-      exports: [TencentIotProductService, TencentIotMqttService, TencentIotDeviceService, TencentIotTaskService, TencentIotProductTaskService]
+      exports: [TencentIotAuthService, TencentIotProductService, TencentIotMqttService, TencentIotDeviceService, TencentIotTaskService, TencentIotProductTaskService]
     };
   }
 
@@ -48,6 +50,7 @@ export class TencentIotCoreModule {
       imports: options.imports,
       providers: [
         ...asyncProviders,
+        TencentIotAuthService,
         TencentIotProductService,
         TencentIotMqttService,
         TencentIotDeviceService,
@@ -57,7 +60,7 @@ export class TencentIotCoreModule {
         RegexUtil,
         createTencentIotClientProvider()
       ],
-      exports: [TencentIotProductService, TencentIotMqttService, TencentIotDeviceService, TencentIotTaskService, TencentIotProductTaskService]
+      exports: [TencentIotAuthService, TencentIotProductService, TencentIotMqttService, TencentIotDeviceService, TencentIotTaskService, TencentIotProductTaskService]
     };
   }
 

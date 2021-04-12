@@ -16,6 +16,8 @@ export interface TencentIotModuleOptions {
   region?: string;
   /** 入口 */
   endpoint?: string;
+  /** 数据转发认证Token */
+  token?: string;
 }
 
 export interface TencentIotOptionsFactory {

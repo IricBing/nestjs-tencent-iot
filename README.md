@@ -33,7 +33,8 @@ import { TencentIotModule } from '@lantsang/nestjs-tencent-iot'
       user: {
         secretId: '腾讯云子用户SecretId',
         secretKey: '腾讯云子用户SecretKey'
-      }
+      },
+      token: '数据转发到第三方服务器校验token'  // 选填，当在规则引擎中启用数据转发到第三方服务器时必填！
     })
   ]
 })
@@ -56,7 +57,8 @@ import { ConfigService } from './modules/config/services/config.service';
         user: {
           secretId: configService.tencent.cam.user.secretId,
           secretKey: configService.tencent.cam.user.secretKey
-        }
+        },
+        token: configService.tencent.iothub.token // 选填，当在规则引擎中启用数据转发到第三方服务器时必填！
       }),
       inject: [CONFIG_PROVIDER]
     }),
