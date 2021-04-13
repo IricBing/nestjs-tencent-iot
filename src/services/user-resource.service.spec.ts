@@ -5,12 +5,11 @@ import { CONFIG_PROVIDER } from '../../test/modules/config/constants/config.cons
 import { ConfigService } from '../../test/modules/config/services/config.service';
 import { TencentIotModule } from '../tencent-iot.module';
 import { RegexUtil } from '../utils/regex.util';
-import { TencentIotAuthService } from './auth.service';
+import { TencentIotUserResourceService } from './user-resource.service';
 
-describe('AuthService (async)', () => {
+describe('UserResourceService (async)', () => {
   let app: INestApplication;
-  let authService: TencentIotAuthService;
-  let configService: ConfigService;
+  let userResourceService: TencentIotUserResourceService;
   let regexUtil: RegexUtil;
 
   beforeAll(async () => {
@@ -30,9 +29,8 @@ describe('AuthService (async)', () => {
       ]
     }).compile();
     app = moduleFixture.createNestApplication();
-    authService = moduleFixture.get(TencentIotAuthService);
+    userResourceService = moduleFixture.get(TencentIotUserResourceService);
     regexUtil = moduleFixture.get(RegexUtil);
-    configService = moduleFixture.get(CONFIG_PROVIDER);
     await app.init();
   });
 
@@ -40,10 +38,10 @@ describe('AuthService (async)', () => {
     await app.close();
   });
 
-  it('签名校验', async () => {
-    const success = authService.checkSignature('c259ed29ec13ba7c649fe0893007401a36e70453', 'IkOaKMDalrAzUTxC', '1604458421');
-    expect(success).toBe(true);
-    const fail = authService.checkSignature('c259ed29ec13ba7c649fe0893007401a36e70453', 'IkOaKMDalrAzUTxC', '16044588421');
-    expect(fail).toBe(false);
+  it('获取账号资源信息', async () => {
+    const { RequestId, UsedSize, Limit } = await userResourceService.info();
+    expect(typeof UsedSize).toBe('number');
+    expect(typeof Limit).toBe('number');
+    expect(regexUtil.isUuid(RequestId)).toBe(true);
   });
 });

@@ -5950,10 +5950,10 @@ tapable@^2.1.1, tapable@^2.2.0:
   resolved "https://registry.npmjs.org/tapable/-/tapable-2.2.0.tgz#5c373d281d9c672848213d0e037d1c4165ab426b"
   integrity sha512-FBk4IesMV1rBxX2tfiK8RAmogtWn53puLOQlvO8XuwlgxcYbP4mVPS9Ph4aeamSyyVjOl24aYWAuc8U5kCVwMw==
 
-tencentcloud-sdk-nodejs@^4.0.94:
-  version "4.0.94"
-  resolved "https://registry.npmjs.org/tencentcloud-sdk-nodejs/-/tencentcloud-sdk-nodejs-4.0.94.tgz#92edc71fe43dfa1accca2fdbb33b1b48af170e6c"
-  integrity sha512-bsaeFzMVd9UcExLZWNWitMBRTtR8TVxxKGwPPo+m88spfS/jJZVA2IX0cS7tjXe15+/HxbzrgptyWUWb+HQjkA==
+tencentcloud-sdk-nodejs@^4.0.96:
+  version "4.0.96"
+  resolved "https://registry.npmjs.org/tencentcloud-sdk-nodejs/-/tencentcloud-sdk-nodejs-4.0.96.tgz#afc0620e33051208a34dd522c3173b6e62d880bc"
+  integrity sha512-IJ07HR2a8aN4GMOmfUDcCUo9BVWkpH8Jkh7n+lSKkrD2soSDx1Huh+XUpbPs0PElVYes04b2gJh5EVBxdQHLeg==
   dependencies:
     babel-eslint "^10.0.2"
     eslint-plugin-react "^7.17.0"

@@ -8,6 +8,8 @@ import { TencentIotMqttService } from './services/mqtt.service';
 import { TencentIotProductTaskService } from './services/product-task.service';
 import { TencentIotProductService } from './services/product.service';
 import { TencentIotTaskService } from './services/task.service';
+import { TencentIotTopicRuleService } from './services/topic-rule.service';
+import { TencentIotUserResourceService } from './services/user-resource.service';
 import { IricUtil } from './utils/iric.util';
 import { RegexUtil } from './utils/regex.util';
 
@@ -29,12 +31,23 @@ export class TencentIotCoreModule {
         TencentIotDeviceService,
         TencentIotTaskService,
         TencentIotProductTaskService,
+        TencentIotTopicRuleService,
+        TencentIotUserResourceService,
         IricUtil,
         RegexUtil,
         createTencentIotClientProvider(),
         { provide: OPTIONS_PROVIDER, useValue: options }
       ],
-      exports: [TencentIotAuthService, TencentIotProductService, TencentIotMqttService, TencentIotDeviceService, TencentIotTaskService, TencentIotProductTaskService]
+      exports: [
+        TencentIotAuthService,
+        TencentIotProductService,
+        TencentIotMqttService,
+        TencentIotDeviceService,
+        TencentIotTaskService,
+        TencentIotProductTaskService,
+        TencentIotTopicRuleService,
+        TencentIotUserResourceService
+      ]
     };
   }
 
@@ -56,11 +69,22 @@ export class TencentIotCoreModule {
         TencentIotDeviceService,
         TencentIotTaskService,
         TencentIotProductTaskService,
+        TencentIotTopicRuleService,
+        TencentIotUserResourceService,
         IricUtil,
         RegexUtil,
         createTencentIotClientProvider()
       ],
-      exports: [TencentIotAuthService, TencentIotProductService, TencentIotMqttService, TencentIotDeviceService, TencentIotTaskService, TencentIotProductTaskService]
+      exports: [
+        TencentIotAuthService,
+        TencentIotProductService,
+        TencentIotMqttService,
+        TencentIotDeviceService,
+        TencentIotTaskService,
+        TencentIotProductTaskService,
+        TencentIotTopicRuleService,
+        TencentIotUserResourceService
+      ]
     };
   }
 
