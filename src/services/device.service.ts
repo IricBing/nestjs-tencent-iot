@@ -11,7 +11,8 @@ import {
   DescribeMultiDevicesResponse,
   DescribeAllDevicesResponse,
   DescribeDeviceResponse,
-  ResetDeviceStateResponse
+  ResetDeviceStateResponse,
+  UpdateDeviceAvailableStateResponse
 } from 'tencentcloud-sdk-nodejs/tencentcloud/services/iotcloud/v20180614/iotcloud_models';
 
 @Injectable()
@@ -91,6 +92,17 @@ export class TencentIotDeviceService {
     if (skey) Object.assign(params, { Skey: skey });
 
     return this.iotClient.DeleteDevice(params);
+  }
+
+  /**
+   * 更新设备可用状态
+   * @param productId 设备所属产品id
+   * @param name 设备名称
+   * @param enableState 要设置的设备状态，1为启用，0为禁用
+   * @returns 设备可用状态设置结果
+   */
+  async updateAvailableState(productId: string, name: string, enableState: 0 | 1): Promise<UpdateDeviceAvailableStateResponse> {
+    return this.iotClient.UpdateDeviceAvailableState({ ProductId: productId, DeviceName: name, EnableState: enableState });
   }
 
   /**

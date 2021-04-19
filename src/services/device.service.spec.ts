@@ -47,6 +47,13 @@ describe('DeviceService (async)', () => {
     expect(regexUtil.isUuid(RequestId)).toBe(true);
   });
 
+  it('更新可用状态', async () => {
+    const { RequestId: RequestId1 } = await deviceService.updateAvailableState(configService.test.iotCloud.productId, name, 0);
+    const { RequestId: RequestId2 } = await deviceService.updateAvailableState(configService.test.iotCloud.productId, name, 1);
+    expect(regexUtil.isUuid(RequestId1)).toBe(true);
+    expect(regexUtil.isUuid(RequestId2)).toBe(true);
+  });
+
   it('重置设备状态', async () => {
     const { RequestId, SuccessCount, ResetDeviceResults } = await deviceService.resetState(configService.test.iotCloud.productId, [name]);
     expect(SuccessCount).toBe(1);
