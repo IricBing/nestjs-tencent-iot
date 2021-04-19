@@ -10,7 +10,8 @@ import {
   DescribeMultiDevTaskResponse,
   DescribeMultiDevicesResponse,
   DescribeAllDevicesResponse,
-  DescribeDeviceResponse
+  DescribeDeviceResponse,
+  ResetDeviceStateResponse
 } from 'tencentcloud-sdk-nodejs/tencentcloud/services/iotcloud/v20180614/iotcloud_models';
 
 @Injectable()
@@ -90,6 +91,16 @@ export class TencentIotDeviceService {
     if (skey) Object.assign(params, { Skey: skey });
 
     return this.iotClient.DeleteDevice(params);
+  }
+
+  /**
+   * 批量重置设备状态
+   * @param productId 产品ID
+   * @param nameList 设备名称列表
+   * @returns 状态重置结果
+   */
+  async resetState(productId: string, nameList: string[]): Promise<ResetDeviceStateResponse> {
+    return this.iotClient.ResetDeviceState({ ProductId: productId, DeviceNames: nameList });
   }
 
   /**

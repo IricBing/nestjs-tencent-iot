@@ -47,6 +47,13 @@ describe('DeviceService (async)', () => {
     expect(regexUtil.isUuid(RequestId)).toBe(true);
   });
 
+  it('重置设备状态', async () => {
+    const { RequestId, SuccessCount, ResetDeviceResults } = await deviceService.resetState(configService.test.iotCloud.productId, [name]);
+    expect(SuccessCount).toBe(1);
+    expect(ResetDeviceResults.length).toBe(1);
+    expect(regexUtil.isUuid(RequestId)).toBe(true);
+  });
+
   it('获取设备详情', async () => {
     const { RequestId, DeviceName } = await deviceService.getDetail(configService.test.iotCloud.productId, name);
     expect(DeviceName).toEqual(name);

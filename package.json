@@ -1,6 +1,6 @@
 {
   "name": "@lantsang/nestjs-tencent-iot",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "自用 nestjs 对接腾讯云物联网通信插件",
   "author": "Iric<iricbing@gmial.com>",
   "license": "MIT",
